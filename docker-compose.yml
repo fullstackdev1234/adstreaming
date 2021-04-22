@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  frontend:
+    container_name: omniscms_nuxt_frontend
+    build:
+      context: .
+      args:
+        # Overwrite the default `production` value in the Dockerfile
+        - NODE_ENV=development
+    restart: on-failure
+    env_file: .env
+    environment:
+      - NODE_ENV=development
+    volumes:
+      - .:/srv/app/src
+    ports:
+      - 80:3000

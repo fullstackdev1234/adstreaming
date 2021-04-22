@@ -1,0 +1,123 @@
+.chat-messages-list {
+  &-container {
+    mask-image: linear-gradient(180deg, rgba(0,0,0,0), rgba(0,0,0,1) 200px);
+    display: flex;
+    flex-grow: 1;
+    height: $message-list-size;
+  }
+
+  &::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    width: 5px;
+    border-radius: 10px;
+    background-color: $app-color-primary;
+  }
+
+  position: relative;
+  max-height: 100%;
+  overflow: auto;
+  list-style-type: none;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+
+  li {
+    height: fit-content;
+  }
+
+  &__icon {
+    margin-right: .5em !important;
+  }
+}
+
+
+.chat-messages-input {
+  &__container {
+    position: relative;
+    margin-top: .5em;
+    text-align: left;
+    color: white;
+  }
+
+  &__input {
+    background-color: $app-input-grey;
+    border: 1px solid $app-color-grey-light;
+    border-radius: 100px;
+    height: 40px;
+    font-size: 16px;
+    padding-left: 1em;
+    padding-right: 48px;
+    width: 100%;
+
+    &::-webkit-input-placeholder {
+      color: #8a8a8b;
+    }
+  }
+
+  &__btn {
+    width: 32px;
+    height: 32px;
+    background-color: $app-color-primary;
+    border-radius: 100%;
+
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    &:disabled {
+      background-color: $app-color-grey-light;
+    }
+  }
+
+  &__icon {
+    fill: white;
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.chat-buttons {
+  display: flex;
+  position: absolute;
+  right: 0;
+  top: 15px;
+  z-index: 9;
+
+  .keyboard-open & {
+    top: 0;
+  }
+
+  a {
+    align-items: center;
+    background: #242328;
+    border-radius: 4px;
+    color: #8a8a8b;
+    display: flex;
+    justify-content: center;
+    margin-left: 4px;
+    padding: 2px 6px;
+  }
+
+  img {
+    height: 28px;
+  }
+
+  img + span {
+    margin-left: 4px;
+  }
+
+  .chat-settings-dropdown {
+    font-size: 16px;
+    position: absolute;
+    right: 0;
+    top: 36px;
+    width: 100%;
+  }
+}

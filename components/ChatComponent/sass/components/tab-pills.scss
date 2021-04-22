@@ -1,0 +1,43 @@
+.tab-pills {
+  &__container {
+    display: flex;
+    justify-content: center;
+  }
+  // display: inline-block;
+
+  &__pill {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    text-align: center;
+    padding: 1rem;
+    flex-basis: 6rem;
+    height: 3rem;
+    background-color: $app-color-grey-dark;
+    border: 1px solid $app-color-grey-light;
+    color: $app-text-grey;
+    text-transform: uppercase;
+
+    @include respond(desktop) {
+      justify-content: flex-start;
+      align-items: flex-start;
+      padding: 0.3rem;
+      border: none;
+      border-bottom: 2px solid $app-color-grey-light;
+    }
+
+    &--selected {
+      border: none;
+      background-color: $app-chat-button;
+      color: $app-text-white;
+      transform: translateY(-1px) scaleX(1.02);
+
+      @include respond(desktop) {
+        border-bottom: 2px solid $app-chat-button;
+        background-color: $app-color-grey-dark;
+
+      }
+    }
+  }
+}

@@ -1,0 +1,37 @@
+@mixin clearfix {
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+/*
+  315px - phone-small
+  410px - phone-md
+  600px - tablet
+*/
+
+@mixin respond($breakpoint) {
+
+  @if $breakpoint == phone-small {
+    @media only screen and (min-width: 20em){ @content }; // 320px
+  }
+
+  @if $breakpoint == phone-md {
+    @media only screen and (min-width: 25.5em){ @content }; // 410px
+  }
+
+  @if $breakpoint == tablet {
+    @media only screen and (min-width: 37.5em){ @content }; // 600px
+  }
+
+  @if $breakpoint == desktop {
+    @media only screen and (min-width: 61.9em){ @content }; // 990px small desktop/huge tablet
+  }
+
+  @if $breakpoint == mobile {
+    @media only screen and (max-width: 48em){ @content }; // 768px tablet - phone
+  }
+
+}

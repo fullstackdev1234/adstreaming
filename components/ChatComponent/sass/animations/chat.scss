@@ -1,0 +1,51 @@
+.scale-enter {
+  opacity: 0;
+  // transform: translate(-50%, -50%) scale(.1);
+}
+
+.scale-enter-active {
+  transition: all .6s;
+  animation: slide-in ease-in forwards;
+ // transform: translate(-50%, -50%) scale(1);
+  // opacity: 1;
+  
+}
+
+.scale-leave-active {
+  transition: all .6s;
+  animation: slide-in ease-out forwards;
+  opacity: 0;
+  // transform: translate(-50%, -50%) scale(.1);
+}
+
+@keyframes slide-in {
+  from {
+    transform: translate(-100vw, -100vh) scale(.1);
+  }
+  to {
+    transform: translate(0px,0px) scale(1);
+  }
+}
+@keyframes slide-out {
+  from {
+    transform: translate(0px, 0px) scale(1);
+  }
+  to {
+    transform: translate(-100vw, -100vh) scale(1);
+  }
+}
+
+@keyframes clickedButton {
+  0% {
+    opacity: 0;
+    transform: scaleX(1.4) scaleY(1.6) translateY(-1px);
+  }
+  80% {
+    transform: translateY(0px);
+    opacity: .2;
+  }
+  100% {
+    opacity: 1;
+    transform: scaleX(1) scaleY(1);
+  }
+}

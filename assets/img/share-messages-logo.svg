@@ -1,0 +1,12 @@
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Group">
+<rect id="rect826" width="32" height="32" rx="16" fill="url(#paint0_linear)"/>
+<path id="path922" d="M15.8172 9C11.4999 9.00003 8.00003 11.9152 8 15.5112C8.00384 17.796 9.44509 19.9119 11.7977 21.0867C11.4897 21.7763 11.0277 22.423 10.4308 23C11.5882 22.7968 12.6747 22.37 13.6057 21.7527C14.3236 21.9304 15.0684 22.0212 15.8172 22.0225C20.1346 22.0224 23.6344 19.1073 23.6345 15.5112C23.6344 11.9152 20.1346 9.00003 15.8172 9V9Z" fill="white"/>
+</g>
+<defs>
+<linearGradient id="paint0_linear" x1="29.2062" y1="29.8758" x2="29.2062" y2="3.97135" gradientUnits="userSpaceOnUse">
+<stop stop-color="#0CBD2A"/>
+<stop offset="1" stop-color="#5BF675"/>
+</linearGradient>
+</defs>
+</svg>

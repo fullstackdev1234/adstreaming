@@ -1,0 +1,177 @@
+/*
+*/
+
+.container {
+  height: 100vh;
+  margin: 0 auto;
+  max-width: 980px;
+  background-color: $app-grey-background;
+  // background-image: url(assets/coverTest.png);
+  // background-size: cover;
+}
+
+.content {
+  @include clearfix;
+  height: 100%;
+  position: relative;
+
+}
+
+.chat-container {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 600px;
+  width: 100%;
+}
+
+.post-list {
+  &-container {
+    position: relative;
+    height: $message-list-size;
+    display: flex;
+    //align-items: flex-end;
+  }
+  // @include clearfix;
+  position: relative;
+  // height: 30em;
+  overflow: auto;
+  list-style-type: none;
+  margin-top: auto;
+  display: flex;
+  flex-direction: column-reverse;
+  width: 100%;
+
+  li {
+    height: fit-content;
+  }
+
+  /*
+  display: flex;
+  justify-content: flex-end;
+  flex-direction: column;
+  */
+}
+
+.post-item {
+  left: 0;
+  &-table {
+    &__shape {
+      width: 2rem;
+      height: 2rem;
+      float: left;
+      -webkit-shape-outside: circle(50% at 50% 50%);
+      shape-outside: circle(50% at 50% 50%);
+      -webkit-clip-path: circle(50% at 50% 50%);
+      clip-path: circle(50% at 50% 50%);
+
+      &--no-image {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $app-color-grey-light;
+        color: $app-text-white;
+      }
+    }
+
+    &__img {
+      height: 100%;
+      // transform: translateX(-.8rem);
+    }
+
+    &__user-icon {
+      &--shape {
+        width: 1.8em;
+        height: 1.8em;
+        fill: white;
+      }
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 1.5rem;
+      height: 1.5rem;
+      border-radius: 5rem;
+      color: white;
+      background-color: #5297e9;
+      font-size: 0.5em;
+      -webkit-clip-path: polygon(
+      13% 13%, 30% 13%, 37% 0%,   50% 8%,  62% 0%,   70% 13%,
+      87% 13%, 87% 30%, 100% 37%, 92% 50%, 100% 62%, 87% 70%,
+      87% 87%, 70% 87%, 62% 100%, 50% 92%, 37% 100%, 30% 87%,
+      13% 87%, 13% 70%, 0% 62%,   8% 50%, 0% 37%,   13% 30%
+      );
+      clip-path: polygon(
+      13% 13%, 30% 13%, 37% 0%,   50% 8%,  62% 0%,   70% 13%,
+      87% 13%, 87% 30%, 100% 37%, 92% 50%, 100% 62%, 87% 70%,
+      87% 87%, 70% 87%, 62% 100%, 50% 92%, 37% 100%, 30% 87%,
+      13% 87%, 13% 70%, 0% 62%,   8% 50%, 0% 37%,   13% 30%
+      );
+    }
+
+    & td:not(:last-child) {
+      padding-right: .5rem;
+    }
+
+    & td:last-child {
+      text-align: left;
+      padding-left: .8rem;
+
+      & p {
+        word-break: break-word;
+        word-wrap: break-word;
+      }
+    }
+  }
+}
+
+.editor {
+  padding: 1rem;
+  position: relative;
+  &__input {
+    display: block;
+    font-family: 'Avenir', Helvetica, Arial, sans-serif;
+    font-size: 16px;
+    background-color: $app-input-grey;
+    border: 1px solid $app-color-grey;
+    color: $app-text-white;
+    height: 4.7rem;
+    overflow-y: hidden;
+
+    padding: 1.3rem 1.3rem;
+    resize: none;
+    width: 100%;
+    border-radius: 100px;
+
+    &:focus {
+      outline: none;
+      border: 2px solid $app-color-grey-light;
+    }
+  }
+
+  &__icon {
+    width: 3.5rem;
+    height: 3.5rem;
+    position: absolute;
+    padding: 2px;
+    top: 1.5rem;
+    right: 1.5rem;
+    background-color: $app-chat-button;
+    border: none;
+    border-radius: 5rem;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    outline: none;
+    font-size: 3em;
+
+    &:disabled {
+      background-color: $app-color-grey-light;
+    }
+
+    & i {
+      color: $app-text-white;
+      margin: auto;
+    }
+  }
+}

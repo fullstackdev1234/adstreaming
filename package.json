@@ -1,0 +1,41 @@
+{
+  "name": "omnisplayer",
+  "description": "https://www.omnisplayer.com/",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "export": "nuxt export",
+    "start": "nuxt start",
+    "generate": "nuxt generate"
+  },
+  "dependencies": {
+    "@aceforth/nuxt-optimized-images": "^1.0.1",
+    "@nuxtjs/date-fns": "^1.3.0",
+    "@nuxtjs/google-analytics": "^2.3.0",
+    "@nuxtjs/pwa": "^3.0.0-0",
+    "@sindresorhus/slugify": "^1.0.0",
+    "axios": "^0.19.2",
+    "body-parser": "^1.19.0",
+    "firebase": "^7.15.5",
+    "firebase-admin": "^8.12.1",
+    "flamelink": "^1.0.0-alpha.31",
+    "imagemin-mozjpeg": "^9.0.0",
+    "imagemin-pngquant": "^9.0.0",
+    "marked": "^1.1.0",
+    "nuxt": "^2.13.3",
+    "responsive-loader": "^1.2.0",
+    "sharp": "^0.25.4",
+    "socket.io-client": "^2.3.0",
+    "vast-client": "^3.1.1",
+    "video.js": "7.7.5",
+    "videojs-contrib-ads": "^6.6.5",
+    "videojs-ima": "^1.8.0",
+    "videojs-youtube": "^2.6.1"
+  },
+  "devDependencies": {
+    "node-sass": "^4.14.1",
+    "sass-loader": "^9.0.1"
+  }
+}

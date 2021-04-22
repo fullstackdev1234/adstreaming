@@ -1,0 +1,117 @@
+stages:
+  - build
+  - deploy
+
+build_dev:
+  image: node:lts
+  stage: build
+  interruptible: true
+  variables:
+    SET_ONLY: "false"
+  cache:
+    paths:
+      - .npm/
+      - .nuxt/
+      - assets/content/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - node api/populate/image-cache.js
+    - npm run build
+    - npm run export
+  artifacts:
+    paths:
+      - dist
+  only:
+    - master
+
+deploy_dev:
+  image: python:latest
+  stage: deploy
+  dependencies:
+    - build_dev
+  variables:
+    ENVIRONMENT: dev
+  before_script:
+    - apt-get update -qy
+    - pip install awscli
+  script:
+    - aws configure set region ${AWS_DEFAULT_REGION}
+    - aws s3 sync --delete dist s3://${S3_WEBAPP_BUCKET_DEV}/
+  only:
+    - master
+
+build_staging:
+  image: node:lts
+  stage: build
+  interruptible: true
+  variables:
+    SET_ONLY: "false"
+  cache:
+    paths:
+      - .npm/
+      - .nuxt/
+      - assets/content/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - node api/populate/image-cache.js
+    - npm run build
+    - npm run export
+  artifacts:
+    paths:
+      - dist
+  only:
+    - dev
+    
+
+deploy_staging:
+  image: python:latest
+  stage: deploy
+  dependencies:
+    - build_staging
+  variables:
+    ENVIRONMENT: staging
+  before_script:
+    - pip install awscli
+  script:
+    - aws configure set region ${AWS_DEFAULT_REGION}
+    - aws s3 sync --delete dist s3://${S3_WEBAPP_BUCKET_STAGING}/
+  only:
+    - staging
+
+
+build_production:
+  image: node:lts
+  stage: build
+  interruptible: true
+  variables:
+    SET_ONLY: "true"
+  cache:
+    paths:
+      - .npm/
+      - .nuxt/
+      - assets/content/
+  script:
+    - npm ci --cache .npm --prefer-offline
+    - node api/populate/image-cache.js
+    - npm run build
+    - npm run export
+  artifacts:
+    paths:
+      - dist
+  only:
+    - dev
+
+deploy_production:
+  image: python:latest
+  stage: deploy
+  dependencies:
+    - build_production
+  variables:
+    ENVIRONMENT: prod
+  before_script:
+    - pip install awscli
+  script:
+    - aws configure set region ${AWS_DEFAULT_REGION}
+    - aws s3 sync --delete dist s3://${S3_WEBAPP_BUCKET_PROD}/
+  only:
+    - dev
